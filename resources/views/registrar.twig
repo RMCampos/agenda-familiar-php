@@ -1,0 +1,72 @@
+{% extends 'templates/app.twig' %}
+
+{% block meta %}
+<meta name="google-site-verification" content="-5E-acD4qPNqSjHWRba8JDz8vQcwZyqsqU7LYHj5dpA"/>
+{% endblock %}
+
+{% block title %}
+<title>Registrar usuário, registre-se para começar | RJAnivers.tk</title>
+{% endblock %}
+
+{% block content %}
+<div class="container rjanivers">
+    <div class="col-md-offset-3 col-md-6">
+        <div class="well">
+            {% include 'templates/flash.twig' %}
+            <h4 class="text-center">Crie sua conta no RJAnivers</h4>
+            <hr>
+            <form action="{{ path_for('registrar') }}" method="POST" class="form-horizontal">
+                <div class="form-group {{ errors.nome ? 'has-error' : '' }}">
+                    <div class="col-sm-12">
+                        <label class="control-label" for="nome">Nome *</label>
+                        <div class="input-group">
+                            <input type="text" maxlength="100" id="nome" name="nome" value="{{ old.nome }}" class="form-control" placeholder="Chapolin Colorado" required>
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        </div>
+                        {% if errors.nome %}
+                        <span class="help-block">{{ errors.nome | first }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group {{ errors.email ? 'has-error' : '' }}">
+                    <div class="col-sm-12">
+                        <label class="control-label" for="email">E-mail *</label>
+                        <div class="input-group">
+                            <input type="email" maxlength="100" id="email" name="email" value="{{ old.email }}" class="form-control" placeholder="chapolin@elchavo.net" required>
+                            <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                        </div>
+                        {% if errors.email %}
+                        <span class="help-block">{{ errors.email | first }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group {{ errors.senha ? 'has-error' : '' }}">
+                    <div class="col-sm-12">
+                        <label class="control-label" for="senha">Senha *</label>
+                        <div class="input-group">
+                            <input type="password" maxlength="30" id="senha" name="senha" value="{{ old.senha }}" class="form-control" required>
+                            <a id="entrarPass" class="input-group-addon input-pass" title="Mostrar/Esconder senha"><i class="fa fa-eye-slash"></i></a>
+                        </div>
+                        {% if errors.senha %}
+                        <span class="help-block">{{ errors.senha | first }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success">Criar conta</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <small>* Campos obrigatórios</small>
+                    </div>
+                </div>
+
+                {{ csrf.field | raw }}
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

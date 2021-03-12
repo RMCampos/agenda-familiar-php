@@ -1,0 +1,6 @@
+*.sql
+bootstrap/database.php
+public/node_modules
+public/build
+vendor/
+composer.lock

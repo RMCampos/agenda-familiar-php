@@ -1,0 +1,109 @@
+{% extends 'templates/app.twig' %}
+
+{% block title %}
+<title>Anote organize e recorde das suas datas e aniversários | RJAnivers.tk</title>
+{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<div class="intro-header" title="anotar-lembrar-aniversarios" role="img" aria-label="Anotar e lembrar dos aniversários">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>Agenda Familiar</h1>
+                    <h3>Suas datas e aniversários sempre à mão</h3>
+                    <hr class="intro-divider">
+                    <ul class="list-inline intro-social-buttons">
+                        <li><a href="#saber-mais" class="btn btn-default btn-lg"><i class="fa fa-info-circle fa-fw"></i> <span class="network-name">Saiba Mais</span></a></li>
+                        <li><a href="{{ path_for('registrar') }}" class="btn btn-default btn-lg"><i class="fa fa-user-plus fa-fw"></i> <span class="network-name">Eu quero!</span></a></li>
+                        <li><a href="{{ path_for('entrar') }}" class="btn btn-default btn-lg"><i class="fa fa-sign-in fa-fw"></i> <span class="network-name">Acessar</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Page Content -->
+<a id="saber-mais"></a>
+<div class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Memória de elefante !?</h2>
+                <p class="lead">Sabemos que lembrar das datas ou aniversários de todas as pessoas que amamos é uma tarefa desafiante.
+                 Ainda mais neste ritmo acelerado tão frequente que nos encontramos.</p>
+                <p class="lead">Com a Agenda Familiar você pode configurar lembretes direto no navegador ou recebê-los por e-mail.
+                 Você tem opção de receber no início do mês todos os aniversários e datas daquele mês, e também no dia.</p>
+                <p class="lead">Você ainda pode organizar por grupos, como amigos, família e trabalho.</p>
+                <p class="lead">Crie sua conta e comece agora mesmo!</p>
+            </div>
+            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <img class="img-responsive" src="{{ base_url() }}/build/img/nao-esquecer-aniversario.jpg" alt="Não esquecer aniversário">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-section-b">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Registre datas também...</h2>
+                <p class="lead">Além de aniversários, cadastre também os feriados de sua cidade e outras datas do ano que são importantes!</p>
+                <p class="lead">Como o dia do seu primeiro beijo, namoro, casamento, dia da árvore, ou ainda o dia do índio :P</p>
+            </div>
+            <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                <img class="img-responsive" src="{{ base_url() }}/build/img/registrar-lembrar-datas.jpg" alt="Registrar e lembrar datas">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="content-section-a">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Acesse de onde estiver</h2>
+                <p class="lead">Coloque nos seus favoritos e acesse de qualquer dispositivo!</p>
+                <p class="lead">Estamos otimizados para facilitar sua visualização das menores telas até as grandes..</p>
+            </div>
+            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <img class="img-responsive" src="{{ base_url() }}/build/img/site-responsivo-mobile.png" alt="Site resposivo mobile">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="banner" title="anote-aniversario-agora-mesmo" role="img" aria-label="Anote aniversários agora mesmo">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6"><h2>Comece agora mesmo!</h2></div>
+            <div class="col-lg-6">
+                <ul class="list-inline banner-social-buttons">
+                    <li><a href="{{ path_for('registrar') }}" class="btn btn-default btn-lg"><i class="fa fa-user-plus fa-fw"></i> <span class="network-name">Eu quero!</span></a></li>
+                    <li><a href="{{ path_for('entrar') }}" class="btn btn-default btn-lg"><i class="fa fa-sign-in fa-fw"></i> <span class="network-name">Acessar</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="copyright text-muted small">Copyright &copy; RJAnivers 2017. All Rights Reserved. Tema por <a href="https://github.com/BlackrockDigital/startbootstrap-landing-page" target="_blank">BlackrockDigital</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

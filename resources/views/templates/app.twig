@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="Ricardo Montania Prado de Campos">
+    <meta name="reply-to" content="ricardo.montania@gmail.com">
+    <meta name="description" content="Controle de aniversários e datas online.">
+    <meta name="keywords" content="aniversários online, datas online, lembrar aniversários online, lembrar datas online">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ base_url() }}/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ base_url() }}/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ base_url() }}/favicons/favicon-16x16.png">
+    <link rel="manifest" href="{{ base_url() }}/favicons/manifest.json">
+    <link rel="mask-icon" href="{{ base_url() }}/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    {% block meta %}{% endblock %}
+    {% block title %}{% endblock %}
+    <link rel="canonical" href="http://www.rjanivers.tk{{ page? '/' ~ page : '' }}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/build/css/app.min.css"/>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top topnav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ auth.check ? path_for('home') : path_for('index') }}">Agenda Familiar</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    {% if auth.check %}
+                    {% else %}
+                    <li class="{{ page == ''?         'active' : '' }}"><a href="{{ path_for('index') }}">Home</a></li>
+                    {% endif %}
+                    <li class="{{ page == 'contato'?         'active' : '' }}"><a href="{{ path_for('contato') }}">Contato</a></li>
+                    <li class="{{ page == 'sobre-nos'?         'active' : '' }}"><a href="{{ path_for('sobre') }}">Sobre Nós</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if auth.check %}
+                    <li><a href="{{ path_for('sair') }}">Sair</a></li>
+                    {% else %}
+                    <li class="{{ page == 'criar-conta'?         'active' : '' }}"><a href="{{ path_for('registrar') }}">Criar conta</a></li>
+                    <li class="{{ page == 'acessar-conta'?            'active' : '' }}"><a href="{{ path_for('entrar') }}">Minha conta</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="{{ base_url() }}/build/js/app.min.js"></script>
+</body>
+
+</html>

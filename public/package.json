@@ -1,0 +1,35 @@
+{
+  "name": "rjanivers",
+  "version": "1.1.30",
+  "description": "A birthdate project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmcampos/calendario.git"
+  },
+  "keywords": [
+    "birthdates",
+    "Save the date",
+    "Remember the date"
+  ],
+  "author": "Ricardo Montania Prado de Campos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rmcampos/calendario/issues"
+  },
+  "homepage": "https://github.com/rmcampos/calendario#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-dest-clean": "^0.5.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.1",
+    "gulp-uglifycss": "^1.0.6",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11"
+  }
+}

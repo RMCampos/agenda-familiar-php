@@ -1,0 +1,86 @@
+{% extends 'templates/app.twig' %}
+
+{% block meta %}
+<meta name="google-site-verification" content="-5E-acD4qPNqSjHWRba8JDz8vQcwZyqsqU7LYHj5dpA"/>
+{% endblock %}
+
+{% block title %}
+<title>Contato, entre em contato conosco | RJAnivers.tk</title>
+{% endblock %}
+
+{% block content %}
+<div class="container rjanivers" id="contatoPage">
+    {% include 'templates/flash.twig' %}
+    <div class="panel-group">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <p class="panel-title">Envie um e-mail</p>
+            </div>
+            <div class="panel-body">
+                <form class="form" action="{{ path_for('contato') }}" method="POST">
+                    <div class="form-group">
+                        <label class="control-label" for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="assunto">Assunto</label>
+                        <input type="text" id="assunto" name="assunto" class="form-control">
+                    </div>
+                    <div class="checkbox">
+                        <label for="mecopiar"><input type="checkbox" id="mecopiar" name="mecopiar"> Receber uma cópia</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="conteudo">Mensagem *</label>
+                        <textarea class="form-control" id="conteudo" name="conteudo"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default">Enviar</button>
+                    {{ csrf.field | raw }}
+                </form>
+            </div>
+        </div>
+        {% if auth.check %}
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <p class="panel-title">Quer reportar um erro? Enviar uma sugestão? Faça isso por aqui! Clique em Novo Item para começar</p>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#todos">Itens</a></li>
+                    <li><a data-toggle="tab" href="#novo">Novo Item</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="todos" class="tab-pane fade in active">
+                        <br>
+                        <p>Veja nesta tabela tudo o que já foi reportado. Erros e melhorias. Para filtrar, digite algo no campo "Search:"</p>
+                        <div class="table-responsive">
+                            <table class="table" id="tblIssue">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-2">#</th>
+                                        <th class="col-sm-6">Título</th>
+                                        <th class="col-sm-2 hidden-xs">Tipo</th>
+                                        <th class="col-sm-2 hidden-xs">Status</th>
+                                        <th class="col-sm-2 hidden-xs">URL</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody1"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="novo" class="tab-pane fade">
+                        <br>
+                        <p>Clique no botão Reportar, e na tela que abrir, informe um título no campo "Issue title", a descrição em "Details", resolva o captcha (por questões de segurança) e então clique em Submit.</p>
+                        <p></p>
+                        <a href="https://gitreports.com/issue/RMCampos/calendario/?name={{ nomeHTML }}&email={{ auth.user.email }}" target="_blank" class="btn btn-default">Reportar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
